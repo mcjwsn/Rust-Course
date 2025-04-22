@@ -1,7 +1,23 @@
+
 mod lab1;
+mod lab2;
 
 fn main() {
 
+    let a= lab2::password_generator::generate(5);
+    println!("{}",a);
+
+    let a= lab2::password_generator::generate(7);
+    println!("{}",a);
+
+    let a= lab2::password_generator::generate(9);
+    println!("{}",a);
+
+    let a= lab2::password_generator::generate(1);
+    println!("{}",a);
+
+    let a= lab2::password_generator::generate(3);
+    println!("{}",a);
 
 
 
