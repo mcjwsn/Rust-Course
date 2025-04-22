@@ -1,6 +1,7 @@
 
 mod lab1;
 mod lab2;
+mod lab3;
 
 fn main() {
 
