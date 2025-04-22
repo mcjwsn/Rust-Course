@@ -1,6 +1,5 @@
-mod tictactoe;
+mod lab1;
 
 fn main() {
-
-    tictactoe::play();
+    //lab1::tictactoe::play();
 }

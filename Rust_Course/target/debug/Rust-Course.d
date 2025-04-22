@@ -1,1 +1,1 @@
-/mnt/c/Users/Dell/Documents/GitHub/Rust/Rust_Course/target/debug/Rust-Course: /mnt/c/Users/Dell/Documents/GitHub/Rust/Rust_Course/src/main.rs /mnt/c/Users/Dell/Documents/GitHub/Rust/Rust_Course/src/tictactoe.rs
+/mnt/c/Users/Dell/Documents/GitHub/Rust/Rust_Course/target/debug/Rust-Course: /mnt/c/Users/Dell/Documents/GitHub/Rust/Rust_Course/src/lab1/mod.rs /mnt/c/Users/Dell/Documents/GitHub/Rust/Rust_Course/src/lab1/tictactoe.rs /mnt/c/Users/Dell/Documents/GitHub/Rust/Rust_Course/src/main.rs
