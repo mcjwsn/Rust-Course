@@ -58,10 +58,9 @@ impl Add for Vec2D {
     type Output = Self;
 
     fn add(self, other: Vec2D) -> Self {
-        Vec2D {
-            x: self.x + other.x,
-            y: self.y + other.y,
-        }
+        let x = self.x + other.x;
+        let y = self.y + other.y;
+        Vec2D {x,y}
     }
 }
 
