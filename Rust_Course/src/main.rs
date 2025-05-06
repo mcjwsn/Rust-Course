@@ -3,52 +3,54 @@ mod lab1;
 mod lab2;
 mod lab3;
 
-use UIEvent::*;
-use Direction::*;
-#[derive(Debug)]
-enum UIEvent {
-    Scroll(Direction),
-    ButtonClicked,
-    KeyPressed(char),
-    MouseClicked{x: u32, y:u32}
-}
-impl UIEvent {
-    fn describe(&self){
-        println!("UIEvent {:?}",self);
-    }
+// use UIEvent::*;
+// use Direction::*;
 
-    fn call(event : UIEvent) {
-        use UIEvent::*;
-        match event {
-            ButtonClicked => println!("Button clicked"), // simple match
-            Scroll(x) => println!("Scroll {:?}", x), // attribute extraction
-            KeyPressed(ch) => { // whole block
-                let up_ch = ch.to_uppercase();
-                println!("Key pressed: {}", up_ch);
-            },
-            MouseClicked { x, y } => println!("Mouse clicked at ({}, {})", x, y), // attribute extraction
-        }
-    }
-}
-#[derive(Debug)]
-enum Direction {
-    Up,
-    Down,
-}
 
-#[derive(Debug)]
-enum Message {
-    Move{x: u32, y: u32},
-    Echo(String),
-    ChangeColor(u8, u8, u8),
-    Quit,
-}
-
-impl Message {
-    fn call(&self) {
-        println!("{:?}", self);
-    }
-}
+// #[derive(Debug)]
+// enum UIEvent {
+//     Scroll(Direction),
+//     ButtonClicked,
+//     KeyPressed(char),
+//     MouseClicked{x: u32, y:u32}
+// }
+// impl UIEvent {
+//     fn describe(&self){
+//         println!("UIEvent {:?}",self);
+//     }
+//
+//     fn call(event : UIEvent) {
+//         use UIEvent::*;
+//         match event {
+//             ButtonClicked => println!("Button clicked"), // simple match
+//             Scroll(x) => println!("Scroll {:?}", x), // attribute extraction
+//             KeyPressed(ch) => { // whole block
+//                 let up_ch = ch.to_uppercase();
+//                 println!("Key pressed: {}", up_ch);
+//             },
+//             MouseClicked { x, y } => println!("Mouse clicked at ({}, {})", x, y), // attribute extraction
+//         }
+//     }
+// }
+// #[derive(Debug)]
+// enum Direction {
+//     Up,
+//     Down,
+// }
+//
+// #[derive(Debug)]
+// enum Message {
+//     Move{x: u32, y: u32},
+//     Echo(String),
+//     ChangeColor(u8, u8, u8),
+//     Quit,
+// }
+//
+// impl Message {
+//     fn call(&self) {
+//         println!("{:?}", self);
+//     }
+// }
 
 
 fn main() {
@@ -69,12 +71,12 @@ fn main() {
     //     message.call();
     // }
 
-    let clicked = ButtonClicked;
-    let scroll = Scroll(Direction::Down);
-    let key_pressed = KeyPressed('b');
-    UIEvent::call(clicked);
-    UIEvent::call(scroll);
-    UIEvent::call(key_pressed);
+    // let clicked = ButtonClicked;
+    // let scroll = Scroll(Direction::Down);
+    // let key_pressed = KeyPressed('b');
+    // UIEvent::call(clicked);
+    // UIEvent::call(scroll);
+    // UIEvent::call(key_pressed);
 
     //lab2
 
