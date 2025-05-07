@@ -17,7 +17,7 @@ mod lab4;
 //         fn describe(&self){
 //                 println!("UIEvent {:?}",self);
 //         }
-// 
+//
 //         fn call(event : UIEvent) {
 //                 use UIEvent::*;
 //                 match event {
@@ -134,8 +134,25 @@ mod lab4;
 // }
 
 // use lab3::vector2d::Vector2d;
-
+// fn abs(num : Option<i32>) -> Option<i32> {
+//     match num{
+//         Some(x) if x > 0 => Some(x),
+//         Some(x) if x < 0 => Some(-x),
+//         _ => None,
+//     }
+// }
 fn main() {
+    //     assert_eq!(Some(5),abs(Some(-5)));
+    //     assert_eq!(None,abs(None));
+    //
+    // fn mul(x : Option<i32>, y : Option<i32>) -> Option<i32> {
+    //     match (x, y) { // use tuple to avoid multiple matches
+    //         (Some(x), Some(y)) => Some(x * y),
+    //         _ => None
+    //     }
+    // }
+
+
         // let v1 = Vector2d::new(3.0, 4.0);
         // let v2 = Vector2d::new(1.0, 2.0);
         //
