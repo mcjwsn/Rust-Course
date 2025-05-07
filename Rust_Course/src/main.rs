@@ -5,6 +5,55 @@ mod lab3;
 
 // use UIEvent::*;
 // use Direction::*;
+
+// #[derive(Debug)]
+// struct Rectangle {
+//     x : f32,
+//     y : f32
+// }
+//
+// impl Rectangle {
+//     fn area(&self) -> f32 {
+//         self.x * self.y
+//     }
+//
+//     fn perimeter(&self) -> f32{
+//         2.0 * ( self.x + self.y )
+//     }
+//
+//     fn scale(&mut self, factor:f32) {
+//         self.x = self.x * factor;
+//         self.y = self.y * factor;
+//     }
+//
+//     fn new_square(x : f32) -> Rectangle { // there is no self in the argument list
+//         Rectangle{x, y : x}
+//     }
+//
+// }
+//
+// trait Shape {
+//     fn area(&self) -> f32;
+//     fn perimeter(&self) -> f32;
+//     fn describe(&self) {
+//         println!("I'm a general shape.");
+//     }
+// }
+//
+// impl Shape for Rectangle {
+//     fn area(&self) -> f32 {
+//         self.x * self.y
+//     }
+//
+//     fn perimeter(&self) -> f32 {
+//         2f32 * (self.x + self.y)
+//     }
+//
+//     fn describe(&self) {
+//         println!("I'm a rectangle.");
+//     }
+// }
+
 // #[derive(Debug)]
 // enum UIEvent {
 //     Scroll(Direction),
@@ -50,8 +99,54 @@ mod lab3;
 //     }
 // }
 
+// use lab3::vector2d::Vector2d;
 
 fn main() {
+    // let v1 = Vector2d::new(3.0, 4.0);
+    // let v2 = Vector2d::new(1.0, 2.0);
+    //
+    // println!("Vector v1:");
+    // v1.write();
+    // println!("Vector v2:");
+    // v2.write();
+    //
+    // let sum = v1 + v2;
+    // println!("Sum (v1 + v2):");
+    // sum.write();
+    //
+    // let v1 = Vector2d::new(3.0, 4.0);
+    // let v2 = Vector2d::new(1.0, 2.0);
+    //
+    // let diff = v1 - v2;
+    // println!("Difference (v1 - v2):");
+    // diff.write();
+    //
+    // let v1 = Vector2d::new(3.0, 4.0);
+    //
+    // let unit_v1 = v1.fabricate();
+    // println!("Normalized v1:");
+    // unit_v1.write();
+    //
+    // let v1 = Vector2d::new(3.0, 4.0);
+    // let v2 = Vector2d::new(1.0, 2.0);
+    //
+    // let is_equal = v1.compare(&v2);
+    // println!("Are v1 and v2 equal? {}", is_equal);
+
+
+    //let r = Rectangle{x: 1.0, y: 2.0}; // create a new instance using constructor
+    //
+    // println!("{:?}", r);
+    //
+    // println!("x: {}, y: {}", r.x, r.y);
+
+    //println!("Area of {:?} is {}", r, r.area());
+
+    // let mut r = Rectangle{ x : 5.0, y : 4.0};
+    // // r.scale(2.0);
+    // println!("Area of r is {}", r.area());
+    // let square = Rectangle::new_square(5.0);
+    // println!("square: {:?}", square);
     // let b_pressed_event = KeyPressed('b');
     // let c_pressed_event = KeyPressed('c');
     // c_pressed_event.describe();
