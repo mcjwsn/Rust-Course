@@ -1,3 +1,4 @@
+use std::ops::Add;
 
 mod lab1;
 mod lab2;
@@ -100,8 +101,93 @@ mod lab3;
 // }
 
 // use lab3::vector2d::Vector2d;
+struct Pair<T> {
+    x: T,
+    y: T
+}
+
+struct Pair2<T, U> {
+    x: T,
+    y: U
+}
+
+enum Option<T> {
+    Some(T),
+    None
+}
+
+enum Result<T, E> {
+    Ok(T),
+    Err(E)
+}
+
+impl <T> Pair<T> {
+        fn extract_x(self) -> T {
+            self.x
+        }
+
+
+
+}
+
+impl <T: Add + Copy> Pair<T> {
+    fn add(&self, other: &Pair<T>) -> Pair<T> {
+        Pair{x: self.x + other.x, y: self.y + other.y}
+    }
+}
+
+impl<T: PartialOrd + Copy> Pair<T> {
+    fn bigger(&self) -> T {
+        if self.x > self.y {
+            self.x
+        } else {
+            self.y
+        }
+    }
+}
+struct Table<T> {
+    data: Vec<T>,
+}
+
+impl <T: PartialOrd + Copy> Table<T>{
+    fn max(&self) -> T{
+        let a = self.data.len();
+        if a == 0{
+            return None
+        }
+        if a == 1{
+            return self.data[0]
+        }
+        let mut max = &self.data[0];
+        for i in 1..self.data.len(){
+            if self.data[i] > max {
+                max = &self.data[i];
+            }
+        }
+        max
+    }
+}
+
+
+
+
 
 fn main() {
+
+    let pi = Pair{x : 5, y : 3};
+
+    let pf = Pair {x: 15f64, y : 12.0f64};
+
+    let pw = Pair2 {x: 15f64, y : 0}; // compile error; x & y must be the same type
+
+
+
+
+
+
+
+
+
     // let v1 = Vector2d::new(3.0, 4.0);
     // let v2 = Vector2d::new(1.0, 2.0);
     //
