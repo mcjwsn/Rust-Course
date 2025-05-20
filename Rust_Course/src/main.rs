@@ -130,11 +130,11 @@ impl <T> Pair<T> {
 
 }
 
-impl <T: Add + Copy> Pair<T> {
-    fn add(&self, other: &Pair<T>) -> Pair<T> {
-        Pair{x: self.x + other.x, y: self.y + other.y}
-    }
-}
+// impl <T: Add + Copy> Pair<T> {
+//     fn add(&self, other: &Pair<T>) -> Pair<T> {
+//         Pair{x: self.x + other.x, y: self.y + other.y}
+//     }
+// }
 
 impl<T: PartialOrd + Copy> Pair<T> {
     fn bigger(&self) -> T {
@@ -149,37 +149,103 @@ struct Table<T> {
     data: Vec<T>,
 }
 
-impl <T: PartialOrd + Copy> Table<T>{
-    fn max(&self) -> T{
-        let a = self.data.len();
-        if a == 0{
-            return None
-        }
-        if a == 1{
-            return self.data[0]
-        }
-        let mut max = &self.data[0];
-        for i in 1..self.data.len(){
-            if self.data[i] > max {
-                max = &self.data[i];
-            }
-        }
-        max
+// impl <T: PartialOrd + Copy> Table<T>{
+//     fn max(&self) -> T{
+//         let a = self.data.len();
+//         if a == 0{
+//             return None
+//         }
+//         if a == 1{
+//             return self.data[0]
+//         }
+//         let mut max = &self.data[0];
+//         for i in 1..self.data.len(){
+//             if self.data[i] > max {
+//                 max = &self.data[i];
+//             }
+//         }
+//         max
+//     }
+// }
+
+// fn len_longer_array(a : &[i32], b : &[i32]) -> usize {
+//     if a.len() > b.len() {
+//         a.len()
+//     } else {
+//         b.len()
+//     }
+// }
+//
+// fn longer_array<'a>(a : &'a [i32], b : &'a [i32]) -> &'a [i32] {
+//     if a.len() > b.len() {
+//         &a
+//     } else {
+//         &b
+//     }
+// }
+// struct Introduction<'a> {
+//     intro : &'a str
+// }
+//
+// impl<'a> Introduction<'a> {
+//     fn print(&self) {
+//         println!("{}", self.intro);
+//     }
+// }
+//
+// fn get_sample_text() -> &'static str {
+//     "Just a sample text"
+// }
+
+struct Rectangle {
+    width : f64,
+    height : f64
+}
+
+impl Rectangle {
+    fn new(width : f64, height : f64) -> Rectangle {
+        Rectangle{width, height}
+    }
+
+    fn area(&self) -> f64 {
+        self.width * self.height
     }
 }
 
+#[cfg(test)]
+mod tests {
+    use super::*;
 
+    #[test]
+    fn test_new_rectangle() {
+        // given
+        let width = 4.5;
+        let height = 5.7;
 
+        // when
+        let r = Rectangle::new(width, height);
 
-
+        // then
+        assert!((r.width - width).abs() < f64::EPSILON && (r.height - height).abs() < f64::EPSILON);
+    }
+}
 fn main() {
+    // let a: [i32; 0] = [];
+    // let b: [i32; 3] = [1, 2, 3];
+    // longer_array(&a, &b);
 
-    let pi = Pair{x : 5, y : 3};
+    //
+    // let pi = Pair{x : 5, y : 3};
+    //
+    // let pf = Pair {x: 15f64, y : 12.0f64};
+    //
+    // let pw = Pair2 {x: 15f64, y : 0}; // compile error; x & y must be the same type
 
-    let pf = Pair {x: 15f64, y : 12.0f64};
-
-    let pw = Pair2 {x: 15f64, y : 0}; // compile error; x & y must be the same type
-
+    // let text = String::from("Introduction to a long text. The rest of long text with many sentences.");
+    //
+    // let intro = text.split('.').next().expect("Could not find a first sentence.");
+    //
+    // let i = Introduction { intro };
 
 
 
