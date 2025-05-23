@@ -1,3 +1,4 @@
+use std::collections::HashMap;
 use std::ops::Add;
 
 mod lab1;
@@ -197,39 +198,82 @@ struct Table<T> {
 //     "Just a sample text"
 // }
 
-struct Rectangle {
-    width : f64,
-    height : f64
+// struct Rectangle {
+//     width : f64,
+//     height : f64
+// }
+//
+// impl Rectangle {
+//     fn new(width : f64, height : f64) -> Rectangle {
+//         Rectangle{width, height}
+//     }
+//
+//     fn area(&self) -> f64 {
+//         self.width * self.height
+//     }
+// }
+//
+// #[cfg(test)]
+// mod tests {
+//     use super::*;
+//
+//     #[test]
+//     fn test_new_rectangle() {
+//         // given
+//         let width = 4.5;
+//         let height = 5.7;
+//
+//         // when
+//         let r = Rectangle::new(width, height);
+//
+//         // then
+//         assert!((r.width - width).abs() < f64::EPSILON && (r.height - height).abs() < f64::EPSILON);
+//     }
+// }
+
+fn words_stats(words: &Vec<String>) -> HashMap<String, i32> {
+    let mut map = HashMap::new();
+    for word in words {
+        let count = map.entry(word.clone()).or_insert(0);
+        *count += 1;
+    }
+    map
+}
+fn hash_map_words_stats_poem() {
+    let response = reqwest::blocking::get("https://wolnelektury.pl/media/book/txt/pan-tadeusz.txt").expect("Cannot get poem from a given URL");
+    let poem = response.text().unwrap();
+
+    let stats = words_stats(&split_to_words(&poem));
+    let sorted_stats = sort_stats(&stats);
+    println!("{:?}", &sorted_stats[..20]);
 }
 
-impl Rectangle {
-    fn new(width : f64, height : f64) -> Rectangle {
-        Rectangle{width, height}
-    }
 
-    fn area(&self) -> f64 {
-        self.width * self.height
+fn split_to_words(s: &str) -> Vec<String> {
+    let mut words = Vec::new();
+    for word in s.split_whitespace() {
+        let unified_word = word.trim_matches(|c| char::is_ascii_punctuation(&c)).to_lowercase();
+        words.push(unified_word);
     }
+    words
 }
 
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn test_new_rectangle() {
-        // given
-        let width = 4.5;
-        let height = 5.7;
-
-        // when
-        let r = Rectangle::new(width, height);
-
-        // then
-        assert!((r.width - width).abs() < f64::EPSILON && (r.height - height).abs() < f64::EPSILON);
+fn sort_stats(stats : &HashMap<String, i32>) -> Vec<(&str, i32)> {
+    let mut sorted_stats : Vec<(&str, i32)> = Vec::new();
+    for (word, count) in stats.iter() {
+        sorted_stats.push((word, *count));
     }
+
+    sorted_stats.sort_by(|(_, c1), (_, c2)| c2.partial_cmp(c1).expect("FAILED"));
+
+    sorted_stats
 }
+
 fn main() {
+    hash_map_words_stats_poem();
+
+
+
     // let a: [i32; 0] = [];
     // let b: [i32; 3] = [1, 2, 3];
     // longer_array(&a, &b);
@@ -246,13 +290,11 @@ fn main() {
     // let intro = text.split('.').next().expect("Could not find a first sentence.");
     //
     // let i = Introduction { intro };
-
-
-
-
-
-
-
+    // let mut v = vec![1, 2, 3];
+    //
+    // for e in &mut v { // mutable borrow
+    //     *e *= 2; // remember to use dereference operator
+    // }
 
     // let v1 = Vector2d::new(3.0, 4.0);
     // let v2 = Vector2d::new(1.0, 2.0);
