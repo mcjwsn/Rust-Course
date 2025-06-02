@@ -270,7 +270,43 @@ fn sort_stats(stats : &HashMap<String, i32>) -> Vec<(&str, i32)> {
 }
 
 fn main() {
-    hash_map_words_stats_poem();
+    // let increment_v1 = |x: u32| -> u32 { x + 1 };
+    // let increment_v2 = |x| { x + 1 };
+    // let increment_v3 = |x| x + 1; // only if there is only one expression
+    //
+    // assert_eq!(increment_v1(4), 5); // calling functional object
+    // assert_eq!(increment_v2(4), 5);
+    // assert_eq!(increment_v3(4), 5);
+
+    // let mut x = vec![1, 2, 3];
+    // let equal_to_x = move |y| y == x;  // equal_to_x becomes the owner of x
+    //
+    // // println!("can't use x here: {:?}", x);
+    //
+    // let y = vec![1, 2, 3];
+    // assert!(equal_to_x(y));
+    // let v = vec![1, 2, 3];
+    // // transforming each element
+    // let res = v.iter().map(|x| x * 2).collect::<Vec<i32>>();
+    // assert_eq!(vec![2, 4, 6], res);
+    //
+    // // filter elements
+    // let res = v.iter().filter(|&x| *x % 2 == 0).map(|x| *x).collect::<Vec<i32>>();
+    // assert_eq!(vec![2], res);
+
+
+    // let mut v = vec![1, 2, 3];
+    //
+    // v.iter_mut().map(|x| *x +=1).collect::<Vec<_>>();
+    // assert_eq!(vec![2, 3, 4], v);
+    //
+    // let v = vec![1, 2, 3];
+    // let v2 = v.into_iter().map(|x | x * 2).collect::<Vec<_>>();
+    //
+    // // v.get(0); // cannot use v anymore - it's moved
+    //
+    // assert_eq!(vec![2, 4, 6], v2);
+    // // hash_map_words_stats_poem();
 
 
 
