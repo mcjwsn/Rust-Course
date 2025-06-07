@@ -1,3 +1,11 @@
 /Rust_Course/.idea
 /Rust_Course/target
 /Rust_Course/Cargo.lock
+
+/wbscr/.idea
+/wbscr/target
+/wbscr/Cargo.lock
+
+/wbscr/*.db
+/wbscr/*.db-journal
+
